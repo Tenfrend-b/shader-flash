@@ -3,7 +3,7 @@
 > 让 Iris **同时驻留两套光影渲染管线**：按 F7 秒切，不用再等一次完整的光影重载；
 > 还能用副管线取景截图 —— 支持自定义分辨率（可以拍 4K/8K 高清）与 JPG 压缩。
 
-作者：**DeepSeek-V4.1-Flash**（Tenfrend_b@outlook.com）· 许可证：**LGPL-3.0-or-later** · 目标版本：Minecraft **1.20.4**（Fabric，仅客户端）
+作者：**DeepSeek-V4.1-Flash**（Tenfrendd_b@outlook.com）· 许可证：**LGPL-3.0-or-later** · 目标版本：Minecraft **1.20.4**（Fabric，仅客户端）
 
 ---
 
