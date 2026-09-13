@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "id": "shaderflash",
-  "version": "${version}",
+  "version": "1.0",
   "name": "Shader Flash",
-  "description": "闪光灯（Shader Flash）：让 Iris 同时驻留两套光影渲染管线，在两者之间按 F7 秒切，不必再等一次完整的光影重载；还可以用副管线取景截图（支持自定义分辨率与 JPG 压缩）。提供 Mod Menu 设置界面与快捷键。",
+  "description": "闪光灯（Shader Flash）：让 Iris 同时驻留两套光影渲染管线，按下快捷键即可迅速切换，不必再等一次完整的光影重载。独有的“副管线截图”可以让你把光影当作闪光灯用，全游戏只渲染一帧光影，而我截图光影不变，",
   "authors": [
     "Tenfrend_b"
   ],
   "contact": {
-    "email": "Tenfrend_b@outlook.com"
+    "email": "Tenfrendd_b@outlook.com"
   },
   "license": "LGPL-3.0-or-later",
   "icon": "assets/shaderflash/icon.png",
