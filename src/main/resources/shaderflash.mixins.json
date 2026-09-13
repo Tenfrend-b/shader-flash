@@ -1,0 +1,27 @@
+{
+  "required": false,
+  "package": "dev.shaderflash.mixin",
+  "plugin": "dev.shaderflash.mixin.DuoMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "MinecraftClientMixin",
+    "ViewportGuardMixin",
+    "KeyboardMixin",
+    "GameRendererMixin",
+    "PipelineManagerMixin",
+    "PipelineManagerAccessor",
+    "IrisAccessor",
+    "IrisRenderingPipelineAccessor",
+    "GameRendererAccessor",
+    "WorldRendererAccessor",
+    "WorldRendererMixin",
+    "SodiumTerrainProgramsMixin",
+    "BlockContextHolderMixin",
+    "EntityShaderGuardMixin",
+    "HandRendererAccessor",
+    "ShaderProgramAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

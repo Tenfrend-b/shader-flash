@@ -1,0 +1,10 @@
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+--- 改名前的那一行 ---
+  float sampleDepth = GetLinearDepth(texture2D(depthtex0, texCoord + offset).r);
+改名统计：替换 9 处，涉及 2 个文件
+--- 改名后的那一行 ---
+  float shaderflash_sample = (depth - sampleDepth) * mult / currentStep;
+还有裸 sample 标识符吗：没有（合格）
+--- 用 GLSL 4.10 解析两段声明 ---
+  float sample = depth * 2.0;  ->  语法错误 [line 4:7 no viable alternative at input 'float sample']
+  float shaderflash_sample = depth * 2.0;  ->  通过

@@ -1,0 +1,45 @@
+﻿java.exe : Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+At C:\Users\tenfr\Documents\Codex\2026-09-11\ni-x\shader-flash\build-local.ps1:113 char:5
++     & $java -cp $verifyCp tools.VerifyTool $finalJar `
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Picked up JAVA_....encoding=UTF-8:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+classpath classes: 26413
+=== 检查的类：47 个 ===
+
+=== Mixin 目标 ===
+  dev.shaderflash.mixin.PipelineManagerAccessor -> net.irisshaders.iris.pipeline.PipelineManager  @Accessor: [pipeline, pipelinesPerDimension, versionCounterForSodiumShaderReload]
+  dev.shaderflash.mixin.MinecraftClientMixin -> net.minecraft.class_310  @Inject: [method_1522]  require>0: [shaderflash$useGhostFramebuffer require=1]
+  dev.shaderflash.mixin.GameRendererMixin -> net.minecraft.class_757  @Inject: [method_3188]  require>0: [shaderflash$capturePose require=1, shaderflash$afterWorldRender require=1]
+  dev.shaderflash.mixin.KeyboardMixin -> net.minecraft.class_309
+  dev.shaderflash.mixin.IrisAccessor -> net.irisshaders.iris.Iris  @Accessor: [currentPack, currentPackName]
+  dev.shaderflash.mixin.WorldRendererAccessor -> net.minecraft.class_761  @Accessor: [field_27740]
+  dev.shaderflash.mixin.BlockContextHolderMixin -> net.irisshaders.iris.compat.sodium.impl.block_context.BlockContextHolder
+  dev.shaderflash.mixin.IrisPipelineFactoryMixin -> net.irisshaders.iris.Iris  @Inject: [createPipeline]
+  dev.shaderflash.mixin.IrisRenderingPipelineAccessor -> net.irisshaders.iris.pipeline.IrisRenderingPipeline  @Accessor: [initializedBlockIds, pack, shadowTargetsSupplier]
+  dev.shaderflash.mixin.WorldRendererMixin -> net.minecraft.class_761  @Inject: [method_3257]
+  dev.shaderflash.mixin.PipelineManagerMixin -> net.irisshaders.iris.pipeline.PipelineManager  @Inject: [destroyPipeline]
+  dev.shaderflash.mixin.SodiumTerrainProgramsMixin -> net.irisshaders.iris.compat.sodium.impl.shader_overrides.IrisChunkProgramOverrides  @Inject: [getProgramOverride, deleteShaders]  @Shadow: [programs, shadersCreated]
+
+=== 已确认存在的注入点/成员：18 个 ===
+  dev.shaderflash.mixin.PipelineManagerAccessor @Accessor(pipeline) (Lnet/irisshaders/iris/pipeline/WorldRenderingPipeline;)V
+  dev.shaderflash.mixin.PipelineManagerAccessor @Accessor(pipelinesPerDimension) ()Ljava/util/Map;
+  dev.shaderflash.mixin.PipelineManagerAccessor @Accessor(versionCounterForSodiumShaderReload) (I)V
+  dev.shaderflash.mixin.MinecraftClientMixin.shaderflash$useGhostFramebuffer -> net.minecraft.class_310.method_1522()V
+  dev.shaderflash.mixin.GameRendererMixin.shaderflash$afterWorldRender -> net.minecraft.class_757.method_3188(FJLnet/minecraft/class_4587;)V
+  dev.shaderflash.mixin.IrisAccessor @Accessor(currentPack) (Lnet/irisshaders/iris/shaderpack/ShaderPack;)V
+  dev.shaderflash.mixin.IrisAccessor @Accessor(currentPackName) (Ljava/lang/String;)V
+  dev.shaderflash.mixin.WorldRendererAccessor @Accessor(field_27740) (Lnet/minecraft/class_4604;)V
+  dev.shaderflash.mixin.IrisPipelineFactoryMixin.shaderflash$vanillaPipeline -> net.irisshaders.iris.Iris.createPipeline(Lnet/irisshaders/iris/shaderpack/materialmap/NamespacedId;)V
+  dev.shaderflash.mixin.IrisRenderingPipelineAccessor @Accessor(initializedBlockIds) ()Z
+  dev.shaderflash.mixin.IrisRenderingPipelineAccessor @Accessor(pack) ()Lnet/irisshaders/iris/shaderpack/ShaderPack;
+  dev.shaderflash.mixin.IrisRenderingPipelineAccessor @Accessor(shadowTargetsSupplier) ()Ljava/util/function/Supplier;
+  dev.shaderflash.mixin.WorldRendererMixin.shaderflash$sampleRenderState -> net.minecraft.class_761.method_3257(Lnet/minecraft/class_4587;Lorg/joml/Matrix4f;FLnet/minecraft/class_4184;ZLjava/lang/Runnable;)V
+  dev.shaderflash.mixin.PipelineManagerMixin.shaderflash$onDestroyPipeline -> net.irisshaders.iris.pipeline.PipelineManager.destroyPipeline()V
+  dev.shaderflash.mixin.SodiumTerrainProgramsMixin.shaderflash$switchPrograms -> net.irisshaders.iris.compat.sodium.impl.shader_overrides.IrisChunkProgramOverrides.getProgramOverride(Lme/jellysquid/mods/sodium/client/render/chunk/terrain/TerrainRenderPass;Lme/jellysquid/mods/sodium/client/render/chunk/vertex/format/ChunkVertexType;)V
+  dev.shaderflash.mixin.SodiumTerrainProgramsMixin.shaderflash$onDeleteShaders -> net.irisshaders.iris.compat.sodium.impl.shader_overrides.IrisChunkProgramOverrides.deleteShaders()V
+  dev.shaderflash.mixin.SodiumTerrainProgramsMixin @Shadow net.irisshaders.iris.compat.sodium.impl.shader_overrides.IrisChunkProgramOverrides.programs Ljava/util/EnumMap;
+  dev.shaderflash.mixin.SodiumTerrainProgramsMixin @Shadow net.irisshaders.iris.compat.sodium.impl.shader_overrides.IrisChunkProgramOverrides.shadersCreated Z
+
+结果：全部通过

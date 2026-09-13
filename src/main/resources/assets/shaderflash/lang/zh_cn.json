@@ -1,0 +1,7 @@
+{
+  "_comment": "这里只放按键相关文本：Minecraft 的按键系统按翻译键解析它们，Java 常量喂不进去。其余所有玩家可见文本都在 src/main/java/dev/shaderflash/ModTexts.java。",
+  "key.categories.shaderflash": "闪光灯",
+  "key.shaderflash.swap": "在主/副光影管线之间切换",
+  "key.shaderflash.toggle": "开关双管线",
+  "key.shaderflash.screen": "打开双管线设置"
+}

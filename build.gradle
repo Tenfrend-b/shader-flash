@@ -1,0 +1,92 @@
+// 常规 Loom 工程写法（需要网络）。
+// 本次交付实际使用的是同目录下的 build-offline.ps1 —— 本机沙箱没有网络，
+// 且 loom 在受限沙箱里会被 Path.toRealPath() 挡住。两者编译的是同一份源码。
+plugins {
+    id 'fabric-loom' version '1.6-SNAPSHOT'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
+    maven {
+        name = 'Terraformers'
+        url = 'https://maven.terraformersmc.com/releases/'
+    }
+    // Mod Menu 的传递依赖 placeholder-api 只发布在 Nucleoid 仓库
+    maven {
+        name = 'Nucleoid'
+        url = 'https://maven.nucleoid.xyz/'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // 需要对着 Iris 的真实类编译（PipelineManager / IrisRenderingPipeline / IrisChunkProgramOverrides …）
+    modImplementation "maven.modrinth:iris:${project.iris_version}"
+    // Sodium 只为那个条件加载的 mixin 提供编译期类型；运行时没装也不影响
+    modCompileOnly "maven.modrinth:sodium:${project.sodium_version}"
+
+    // 只用到 Mod Menu 的编译期 API，运行时由玩家自行安装
+    modCompileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') {
+        expand 'version': project.version
+    }
+}
+
+// 本工程的 mixin 一律写 intermediary 名 + remap = false（与离线手工构建链同一份写法），
+// 不带 refmap，也不需要 Mixin 注解处理器 —— 打开它反而会因为 Yarn 命名的目标类里
+// 找不到 intermediary 成员（如 @Accessor("field_27740")）而让 compileJava 失败。
+loom {
+    mixin {
+        useLegacyMixinAp = false
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
+    it.options.encoding = 'UTF-8'
+}
+
+// 供离线构建链使用：把 Loom 生成的 Yarn 命名编译类路径导出成文件，
+// handover\make-materials.ps1 会据此拼出 materials\libs-named\。
+tasks.register('dumpCompileClasspath') {
+    def outFile = layout.buildDirectory.file('compile-classpath.txt')
+    def classpath = sourceSets.main.compileClasspath
+    outputs.file(outFile)
+    doLast {
+        outFile.get().asFile.setText(classpath.files.collect { it.absolutePath }.join(System.lineSeparator()))
+        println "wrote ${classpath.files.size()} entries to ${outFile.get().asFile}"
+    }
+}
+
+java {
+    withSourcesJar()
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+jar {
+    from('LICENSE') {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
+}

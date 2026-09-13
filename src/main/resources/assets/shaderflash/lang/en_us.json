@@ -1,0 +1,7 @@
+{
+  "_comment": "Only key-bind texts live here: Minecraft resolves them by translation key, so Java constants cannot feed them. All other player-visible text lives in src/main/java/dev/shaderflash/ModTexts.java.",
+  "key.categories.shaderflash": "Shader Flash",
+  "key.shaderflash.swap": "Swap primary / secondary pipeline",
+  "key.shaderflash.toggle": "Toggle dual pipeline",
+  "key.shaderflash.screen": "Open dual pipeline settings"
+}

@@ -1,0 +1,32 @@
+﻿java.exe : Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+At C:\Users\tenfr\Documents\Codex\2026-09-11\ni-x\shader-flash\build-local.ps1:113 char:5
++     & $java -cp $verifyCp tools.VerifyTool $finalJar `
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Picked up JAVA_....encoding=UTF-8:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Exception in thread "main" java.io.UncheckedIOException: java.nio.file.AccessDeniedException: C:\Users\tenfr\Documents\
+Codex\2026-09-11\mc-je-1-20-4-fabric-2\work\build\cp-inter\assets
+	at java.base/java.nio.file.FileTreeIterator.fetchNextIfNeeded(FileTreeIterator.java:87)
+	at java.base/java.nio.file.FileTreeIterator.hasNext(FileTreeIterator.java:103)
+	at java.base/java.util.Spliterators$IteratorSpliterator.tryAdvance(Spliterators.java:1855)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.lambda$initPartialTraversalState$0(StreamSplitera
+tors.java:292)
+	at java.base/java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.fillBuffer(StreamSpliterators.java:206)
+	at java.base/java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.doAdvance(StreamSpliterators.java:161)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.tryAdvance(StreamSpliterators.java:298)
+	at java.base/java.util.Spliterators$1Adapter.hasNext(Spliterators.java:681)
+	at tools.VerifyTool.index(VerifyTool.java:63)
+	at tools.VerifyTool.main(VerifyTool.java:52)
+Caused by: java.nio.file.AccessDeniedException: C:\Users\tenfr\Documents\Codex\2026-09-11\mc-je-1-20-4-fabric-2\work\bu
+ild\cp-inter\assets
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:86)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:535)
+	at java.base/java.nio.file.Files.newDirectoryStream(Files.java:482)
+	at java.base/java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:301)
+	at java.base/java.nio.file.FileTreeWalker.next(FileTreeWalker.java:374)
+	at java.base/java.nio.file.FileTreeIterator.fetchNextIfNeeded(FileTreeIterator.java:83)
+	... 9 more
