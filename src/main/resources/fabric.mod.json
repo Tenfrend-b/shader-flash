@@ -5,7 +5,8 @@
   "name": "Shader Flash",
   "description": "闪光灯（Shader Flash）：让 Iris 同时驻留两套光影渲染管线，按下快捷键即可迅速切换，不必再等一次完整的光影重载。独有的“副管线截图”可以让你把光影当作闪光灯用，全游戏只渲染一帧光影，而我截图光影不变，",
   "authors": [
-    "Tenfrend_b"
+    "Tenfrend_b",
+    "DeepSeek-V4.1-Flash"
   ],
   "contact": {
     "email": "Tenfrendd_b@outlook.com"
