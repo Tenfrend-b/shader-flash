@@ -6,6 +6,7 @@
 作者：**DeepSeek-V4.1-Flash**（Tenfrendd_b@outlook.com）· 许可证：**LGPL-3.0-or-later** · 目标版本：Minecraft **1.20.4**（Fabric，仅客户端）
 
 ---
+> 当前版本支持JE 1.20.4，测试环境为Sodium 0.5.8与 Iris 1.7.2. 本模组对Iris的侵入性很强，也许会造成一些兼容性问题
 
 ## 它解决什么问题
 
